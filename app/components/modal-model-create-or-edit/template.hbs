@@ -1,0 +1,28 @@
+{{#default-modal
+  closeAction="closeModal"
+  isVisible=modalIsVisible
+  inProgress=inProgress}}
+  {{modal-headline hl=modalHeadline}}
+    {{#if failure}}
+      {{alert-box title=generalErrorTitle message=generalErrorMessage type="error"}}
+    {{/if}}
+    {{#if success}}
+      {{alert-box title=generalSuccessTitle message=generalSuccessMessage type="success"}}
+    {{else}}
+      {{#each modelAttributes as |attribute|}}
+        {{#form-input title=attribute.title inputId=attribute.attributeName }}
+          {{input id=attribute.attributeName model=model modelAttribute=attribute.attributeName class="form-control col-xs-12" disabled=attribute.disabled maxlength=attribute.length}}
+        {{/form-input}}
+        {{attribute-error model=model attributeName=attribute.attributeName}}
+      {{/each}}
+    {{/if}}
+
+    {{#modal-footer}}
+      {{#if success}}
+        {{button-primary action="closeModal" title=closeText}}
+      {{else}}
+        {{button-primary action="updateModel" title=saveText}}
+        {{button-secondary action="closeModal" title=cancelText}}
+      {{/if}}
+    {{/modal-footer}}
+{{/default-modal}}

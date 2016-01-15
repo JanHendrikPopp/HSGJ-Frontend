@@ -1,0 +1,192 @@
+  <!-- Start: Main -->
+  <div id="main">
+
+    <!-- Start: Header -->
+    <header class="navbar navbar-fixed-top navbar-shadow">
+      <div class="navbar-branding">
+        <a class="navbar-brand" href="dashboard.html">
+          <b>APP</b>Organisation
+        </a>
+        <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown menu-merge">
+          <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
+          	<img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64">
+          	<span class="hidden-xs pl15"> Michael .R </span>
+            <span class="caret caret-tp hidden-xs"></span>
+          </a>
+          <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
+            <li class="dropdown-header clearfix">
+              <div class="pull-left ml10">
+                <select id="user-status">
+                  <optgroup label="Current Status:">
+                    <option value="1-1">Away</option>
+                    <option value="1-2">Offline</option>
+                    <option value="1-3" selected="selected">Online</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div class="pull-right mr10">
+                <select id="user-role">
+                  <optgroup label="Logged in As:">
+                    <option value="1-1">Client</option>
+                    <option value="1-2">Editor</option>
+                    <option value="1-3" selected="selected">Admin</option>
+                  </optgroup>
+                </select>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <a href="#" class="animated animated-short fadeInUp">
+                <span class="fa fa-envelope"></span> Messages
+                <span class="label label-warning">2</span>
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="#" class="animated animated-short fadeInUp">
+                <span class="fa fa-user"></span> Friends
+                <span class="label label-warning">6</span>
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="#" class="animated animated-short fadeInUp">
+                <span class="fa fa-bell"></span> Notifications </a>
+            </li>
+            <li class="list-group-item">
+              <a href="#" class="animated animated-short fadeInUp">
+                <span class="fa fa-gear"></span> Settings </a>
+            </li>
+            <li class="dropdown-footer">
+              <a href="#" class="">
+              <span class="fa fa-power-off pr5"></span> Logout </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- End: Header -->
+
+    <!-- Start: Sidebar -->
+    <aside id="sidebar_left" class="nano nano-light affix">
+
+      <!-- Start: Sidebar Left Content -->
+      <div class="sidebar-left-content nano-content">
+
+        <!-- Start: Sidebar Header -->
+        <header class="sidebar-header">
+
+        </header>
+        <!-- End: Sidebar Header -->
+
+        <!-- Start: Sidebar Menu -->
+        <ul class="nav sidebar-menu">
+          <li class="sidebar-label pt20">
+            {{t "navigation.data.head"}}
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa fa-users"></span>
+              <span class="sidebar-title">
+                {{#link-to "tenant.list"}}{{t "navigation.tenants.list"}}{{/link-to}}
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa fa-users"></span>
+              <span class="sidebar-title">
+                {{#link-to "inventory.list"}}{{t "navigation.inventories.list"}}{{/link-to}}
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa fa-users"></span>
+              <span class="sidebar-title">
+                {{#link-to "reservation.list"}}{{t "navigation.reservations.list"}}{{/link-to}}
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fa fa-users"></span>
+              <span class="sidebar-title">
+                {{#link-to "invoice.list"}}{{t "navigation.invoices.list"}}{{/link-to}}
+              </span>
+            </a>
+          </li>
+        </ul>
+        <!-- End: Sidebar Menu -->
+
+      </div>
+      <!-- End: Sidebar Left Content -->
+
+    </aside>
+
+    {{outlet 'modal'}}
+
+    <!-- Start: Content-Wrapper -->
+    <section id="content_wrapper">
+      <!-- Begin: Content -->
+      <section id="content" class="animated fadeIn">
+
+
+        <!-- Demo Text Content -->
+        <div class="pl15 pr50">
+          {{outlet}}
+        </div>
+
+        <!-- Begin: Page Footer -->
+        <footer id="content-footer" class="affix">
+          <div class="row">
+            <div class="col-md-6">
+              <span class="footer-legal">© 2015 JPP</span>
+            </div>
+            <div class="col-md-6 text-right">
+              <span class="footer-meta">Version: <b {{action "showReleaseNotes"}}>0.1</b></span>
+            </div>
+          </div>
+        </footer>
+        <!-- End: Page Footer -->
+
+      </section>
+      <!-- End: Content -->
+
+    </section>
+
+  </div>
+  <!-- End: Main -->
+
+  <!-- BEGIN: PAGE SCRIPTS -->
+
+  <!-- jQuery -->
+  <script src="jquery/jquery-1.11.1.min.js"></script>
+  <script src="jquery_ui/jquery-ui.min.js"></script>
+
+  <!-- Theme Javascript -->
+  <script src="utility.js"></script>
+  <script src="main.js"></script>
+  <!-- END: PAGE SCRIPTS -->
+
+<!--
+  <script type="text/javascript">
+  jQuery(document).ready(function() {
+
+    "use strict";
+
+    // Init Theme Core
+    Core.init();
+
+    // Init CanvasBG and pass target starting location
+    CanvasBG.init({
+      Loc: {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 3.3
+      },
+    });
+
+  });
+  </script>
+-->

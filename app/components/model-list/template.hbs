@@ -1,0 +1,24 @@
+<div class="panel">
+  <div class="panel-body pn">
+    <div class="table-responsive">
+      <table class="table admin-form theme-warning tc-checkbox-1 fs13">
+        <thead>
+          <tr class="bg-light">
+            {{#each modelAttributes as |attribute|}}
+              <th class="">{{t attribute.title}}</th>
+            {{/each}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model as |model|}}
+            <tr>
+              {{#each modelAttributes as |attribute|}}
+                <td class="">{{model-attribute-display model=model attribute=attribute}}</td>
+              {{/each}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
