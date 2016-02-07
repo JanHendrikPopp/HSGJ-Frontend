@@ -19,8 +19,29 @@ export default {
     },
 
     "modals": {
+      "error": {
+        "save": {
+          "default": {
+            "title": "Speichern nicht erfolgreich",
+            "message": "Der Vorgang konnte nicht erfolgreich abgeschlossen werden. Bitte versuchen sie es erneut oder wenden Sie sich an den Administrator."
+          }
+        }
+      },
+      "success": {
+        "save": {
+          "default": {
+            "title": "Speichern erfolgreich",
+            "message": "Der Speichervorgang wurde erfolgreich abgeschlossen."
+          }
+        }
+      },
       "general": {
         "close": "schließen"
+      },
+      "model": {
+        "tenant": {
+          "save": "Kunde speichern"
+        }
       },
       "feature": {
         "headline": "Bald verfügbar",
@@ -28,20 +49,54 @@ export default {
       }
     },
 
+    "popover": {
+      "optional": {
+        "true": "Optionales Feld",
+        "false": "Pflichtfeld"
+      }
+    },
+
     "model": {
       "attribute": {
-        "title": {
-          "tenant": {
-            "id": "Id",
-            "gender": "Anrede",
-            "active": "Status",
-            "firstname": "Vorname",
-            "lastname": "Nachname",
-            "birthday": "Geburtstag",
-            "street": "Straße Hausnummer",
-            "postcode": "Postleitzahl",
-            "country": "Land"
+        "tenant": {
+          "id": {
+            "title": "Id",
+            "popover": "Bitte geben Sie eine Id an."
           },
+          "gender": {
+            "title": "Anrede",
+            "popover": "Bitte geben Sie eine Anrede an."
+          },
+          "active": {
+            "title": "Status",
+            "popover": "Bitte geben Sie einen Status an."
+          },
+          "firstname": {
+            "title": "Vorname",
+            "popover": "Bitte geben Sie einen Vornamen an."
+          },
+          "lastname": {
+            "title": "Nachname",
+            "popover": "Bitte geben Sie einen Nachnamen an."
+          },
+          "birthday": {
+            "title": "Geburtstag",
+            "popover": "Bitte geben Sie ein Geburtstdatum an."
+          },
+          "street": {
+            "title": "Straße Hausnummer",
+            "popover": "Bitte geben Sie eine Hausnummer an."
+          },
+          "postcode": {
+            "title": "Postleitzahl",
+            "popover": "Bitte geben Sie eine Postleitzahl an."
+          },
+          "country": {
+            "title": "Land",
+            "popover": "Bitte geben Sie ein Land an."
+          }
+        },
+        "title": {
           "inventory": {
             "id": "Id",
             "name": "Name",

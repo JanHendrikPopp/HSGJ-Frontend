@@ -6,25 +6,43 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
 		admins: { embedded: 'always' }
 	},
 	normalizeResponse: function(store, primaryModelClass, payload, id, requestType) {
-		if (payload._embedded.tenants) {
-			payload.tenants = payload._embedded.tenants;
-			delete payload._embedded;
-			delete payload._links;
-		} else if (payload._embedded.inventories) {
-			payload.inventories = payload._embedded.inventories;
-			delete payload._embedded;
-			delete payload._links;
-		} else if (payload._embedded.reservations) {
-			payload.reservations = payload._embedded.reservations;
-			delete payload._embedded;
-			delete payload._links;
-		} else if (payload._embedded.invoices) {
-			payload.invoices = payload._embedded.invoices;
-			delete payload._embedded;
-			delete payload._links;
+		var model = payload.modelType;
+		if (model) {
+			var test = {};
+			test[model] = payload;
+			payload = test;
 		}
+		if (payload._embedded) {
+			if (payload._embedded.tenants) {
+				payload.tenants = payload._embedded.tenants;
+				delete payload._embedded;
+				delete payload._links;
+			} else if (payload._embedded.inventories) {
+				payload.inventories = payload._embedded.inventories;
+				delete payload._embedded;
+				delete payload._links;
+			} else if (payload._embedded.reservations) {
+				payload.reservations = payload._embedded.reservations;
+				delete payload._embedded;
+				delete payload._links;
+			} else if (payload._embedded.invoices) {
+				payload.invoices = payload._embedded.invoices;
+				delete payload._embedded;
+				delete payload._links;
+			}
+		}
+
 		return this._super(store, primaryModelClass, payload, id, requestType);
-	}
+	},
+	serialize: function(snapshot) {
+		var options = options || {};
+    options.includeId = true;
+		var json = this._super(snapshot, options);
+    return json;
+  },
+	serializeIntoHash: function(hash, type, record, options) {
+    Ember.merge(hash, this.serialize(record, options));
+  },
 	/*
   keyForAttribute: function(attr, method) {
     return Ember.String.camelize(attr);

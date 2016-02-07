@@ -1,28 +1,30 @@
-{{#default-modal
-  closeAction="closeModal"
-  isVisible=modalIsVisible
-  inProgress=inProgress}}
-  {{modal-headline hl=modalHeadline}}
+{{#modal-large}}
+  <div class="modal-header">
+    <button type="button" class="close" {{action "cancel"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">{{t title}}</h4>
+  </div>
+  <div class="modal-body">
     {{#if failure}}
-      {{alert-box title=generalErrorTitle message=generalErrorMessage type="error"}}
+      {{alert-box title=generalErrorTitle message=generalErrorMessage type="danger"}}
     {{/if}}
     {{#if success}}
       {{alert-box title=generalSuccessTitle message=generalSuccessMessage type="success"}}
     {{else}}
-      {{#each modelAttributes as |attribute|}}
-        {{#form-input title=attribute.title inputId=attribute.attributeName }}
-          {{input id=attribute.attributeName model=model modelAttribute=attribute.attributeName class="form-control col-xs-12" disabled=attribute.disabled maxlength=attribute.length}}
-        {{/form-input}}
+      {{#each attributes as |attribute|}}
+        <form class="form-horizontal">
+          {{#form-group title=attribute.title inputId=attribute.attributeName }}
+            {{input id=attribute.attributeName model=model tooltip="test" attribute=attribute class="form-control col-xs-12" disabled=attribute.disabled maxlength=attribute.length}}
+          {{/form-group}}
+        </form>
+
         {{attribute-error model=model attributeName=attribute.attributeName}}
       {{/each}}
     {{/if}}
-
-    {{#modal-footer}}
-      {{#if success}}
-        {{button-primary action="closeModal" title=closeText}}
-      {{else}}
-        {{button-primary action="updateModel" title=saveText}}
-        {{button-secondary action="closeModal" title=cancelText}}
-      {{/if}}
-    {{/modal-footer}}
-{{/default-modal}}
+  </div>
+  <div class="modal-footer">
+    {{#unless success}}
+      <button {{action "updateModel"}} type="button" class="btn btn-primary">{{t "modals.model.tenant.save"}}</button>
+    {{/unless}}
+    <button {{action "cancel"}} type="button" class="btn btn-primary">{{t "modals.general.close"}}</button>
+  </div>
+{{/modal-large}}

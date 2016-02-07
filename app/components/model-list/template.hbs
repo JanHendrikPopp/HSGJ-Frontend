@@ -11,11 +11,13 @@
         </thead>
         <tbody>
           {{#each model as |model|}}
-            <tr>
-              {{#each modelAttributes as |attribute|}}
-                <td class="">{{model-attribute-display model=model attribute=attribute}}</td>
-              {{/each}}
-            </tr>
+            {{#unless model.isNew}}
+              <tr>
+                {{#each modelAttributes as |attribute|}}
+                  <td class="">{{model-attribute-display model=model attribute=attribute}}</td>
+                {{/each}}
+              </tr>
+            {{/unless}}
           {{/each}}
         </tbody>
       </table>

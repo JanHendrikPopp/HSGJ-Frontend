@@ -6,6 +6,9 @@ export default Ember.Route.extend({
 		showModal: function(name, title, icon, message) {
 			this.renderModal(name, title, icon, message);
     },
+		showEditModelModal: function(model, mode, attributes) {
+			this._renderEditModelModal(model, mode, attributes);
+		},
     removeModal: function() {
       this.disconnectOutlet({
         outlet: 'modal',
@@ -38,6 +41,18 @@ export default Ember.Route.extend({
 		modalController.set("icon", icon);
 		modalController.set("message", message);
 		this.render("modals/"+name, {
+			into: 'application',
+			outlet: 'modal',
+			controller: modalController
+		});
+		Ember.$('.modal').modal();
+	},
+	_renderEditModelModal: function(model, mode, attributes) {
+		var modalController = this.controllerFor("common/modal/model-create-or-edit");
+		modalController.set("model", model);
+		modalController.set("mode", mode);
+		modalController.set("attributes", attributes);
+		this.render("modals/model-create-or-edit", {
 			into: 'application',
 			outlet: 'modal',
 			controller: modalController

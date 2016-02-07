@@ -1,13 +1,13 @@
-import Ember from 'ember';
+import DefaultModal from '../modal-default/component';
 
-export default Ember.Component.extend({
+export default DefaultModal.extend({
   inProgress: false,
   success: false,
   failure: false,
-  generalErrorTitle: "modal.error.default.title",
-  generalErrorMessage: "modal.error.default.message",
-  generalSuccessTitle: "modal.success.default.title",
-  generalSuccessMessage: "modal.success.default.message",
+  generalErrorTitle: "modals.error.save.default.title",
+  generalErrorMessage: "modals.error.save.default.message",
+  generalSuccessTitle: "modals.success.save.default.title",
+  generalSuccessMessage: "modals.success.save.default.message",
 
   observeModal: function() {
     this.set("inProgress", false);
@@ -32,6 +32,7 @@ export default Ember.Component.extend({
   },
   endProgressWithFailure: function(reason) {
     this.set("inProgress", false);
+    this.set("failure", true);
     if(!reason.errors) {
       this.set("failure", true);
     }
