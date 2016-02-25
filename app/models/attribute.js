@@ -7,6 +7,7 @@ var Attribute = Ember.Object.extend({
   disabled: false,
   length: "40",
   optional: false,
+  displayClass: 'standard',
   title: Ember.computed('modelName', 'attributeName', function() {
     var modelName = this.get("modelName");
     var attributeName = this.get("attributeName");

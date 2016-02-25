@@ -1,1 +1,9 @@
-{{content}}
+{{#if isActiveClass}}
+  {{#if content}}
+    <span class="label label-success">{{t "labels.active"}}</span>
+  {{else}}
+    <span class="label label-danger">{{t "labels.deactive"}}</span>
+  {{/if}}
+{{else}}
+  {{content}}
+{{/if}}

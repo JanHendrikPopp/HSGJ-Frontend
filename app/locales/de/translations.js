@@ -137,14 +137,8 @@ export default {
       }
     },
 
-    "reservation": {
-      "list": {
-        "headline": "Übersicht Reservierungen"
-      }
-    },
-    "invoice": {
-      "list": {
-        "headline": "Übersicht Rechnungen"
-      }
+    "labels": {
+      "active": "Aktiv",
+      "deactive": "Deaktiv"
     }
 };

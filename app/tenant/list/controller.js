@@ -6,7 +6,7 @@ export default FormController.extend({
 
   modelListAttributes: Ember.ArrayProxy.create({
     content: Ember.A([
-        Attribute.create({modelName: "tenant", attributeName: "active"}),
+        Attribute.create({modelName: "tenant", attributeName: "active", displayClass: "active"}),
         Attribute.create({modelName: "tenant", attributeName: "name"}),
         Attribute.create({modelName: "tenant", attributeName: "street"}),
         Attribute.create({modelName: "tenant", attributeName: "postcode"}),
