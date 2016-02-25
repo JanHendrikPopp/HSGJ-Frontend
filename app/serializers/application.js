@@ -43,6 +43,9 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
 	serializeIntoHash: function(hash, type, record, options) {
     Ember.merge(hash, this.serialize(record, options));
   },
+	extractErrors: function(store, typeClass, payload, id) {
+    return payload;
+  }
 	/*
   keyForAttribute: function(attr, method) {
     return Ember.String.camelize(attr);

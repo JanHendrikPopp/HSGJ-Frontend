@@ -18,6 +18,15 @@ export default {
       }
     },
 
+    "validation": {
+      "tenant": {
+        "name.not.empty": "Der Name darf nicht leer sein.",
+        "street.not.empty": "Die Straße darf nicht leer sein.",
+        "postcode.not.empty": "Die Postleitzahl darf nicht leer sein.",
+        "country.not.empty": "Das Land darf nicht leer sein.",
+      }
+    },
+
     "modals": {
       "error": {
         "save": {
@@ -36,7 +45,8 @@ export default {
         }
       },
       "general": {
-        "close": "schließen"
+        "close": "schließen",
+        "create.or.edit.headline": "Anlegen / Bearbeiten"
       },
       "model": {
         "tenant": {
@@ -63,25 +73,13 @@ export default {
             "title": "Id",
             "popover": "Bitte geben Sie eine Id an."
           },
-          "gender": {
-            "title": "Anrede",
-            "popover": "Bitte geben Sie eine Anrede an."
-          },
           "active": {
             "title": "Status",
             "popover": "Bitte geben Sie einen Status an."
           },
-          "firstname": {
-            "title": "Vorname",
-            "popover": "Bitte geben Sie einen Vornamen an."
-          },
-          "lastname": {
-            "title": "Nachname",
-            "popover": "Bitte geben Sie einen Nachnamen an."
-          },
-          "birthday": {
-            "title": "Geburtstag",
-            "popover": "Bitte geben Sie ein Geburtstdatum an."
+          "name": {
+            "title": "Name",
+            "popover": "Bitte geben Sie einen Namen an."
           },
           "street": {
             "title": "Straße Hausnummer",

@@ -1,6 +1,6 @@
 import Ember from 'ember';
 var $ = Ember.$;
-import DS from 'ember-data';
+import BaseModel from "../models/base-model";
 
 /**
  * Tenant model
@@ -9,12 +9,9 @@ import DS from 'ember-data';
  * @param   {Object}   ember-data
  * @returns {DS.Model}
  */
-var Tenant = DS.Model.extend({
-  gender: DS.attr("string"),
+var Tenant = BaseModel.extend({
   active: DS.attr("boolean"),
-  firstname: DS.attr("string"),
-  lastname: DS.attr("string"),
-  birthday: DS.attr("number"),
+  name: DS.attr("string"),
   street: DS.attr("string"),
   postcode: DS.attr("string"),
   country: DS.attr("string")

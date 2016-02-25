@@ -1,7 +1,7 @@
 {{#modal-large}}
   <div class="modal-header">
     <button type="button" class="close" {{action "cancel"}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title" id="myModalLabel">{{t title}}</h4>
+    <h4 class="modal-title" id="myModalLabel">{{t "modals.general.create.or.edit.headline"}}</h4>
   </div>
   <div class="modal-body">
     {{#if failure}}
@@ -14,10 +14,9 @@
         <form class="form-horizontal">
           {{#form-group title=attribute.title inputId=attribute.attributeName }}
             {{input id=attribute.attributeName model=model tooltip="test" attribute=attribute class="form-control col-xs-12" disabled=attribute.disabled maxlength=attribute.length}}
+            {{attribute-error errors=model.errors.messages attributeName=attribute.attributeName}}
           {{/form-group}}
         </form>
-
-        {{attribute-error model=model attributeName=attribute.attributeName}}
       {{/each}}
     {{/if}}
   </div>
