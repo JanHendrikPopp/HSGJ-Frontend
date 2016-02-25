@@ -8,16 +8,16 @@ import config from './config/environment';
   Router.map(function() {
     this.route('login');
 
-    this.resource('inventory', function() {
+    this.route('inventory', function() {
       this.route('list');
     });
-    this.resource('tenant', function() {
+    this.route('tenant', function() {
       this.route('list');
     });
-    this.resource('reservation', function() {
+    this.route('reservation', function() {
       this.route('list');
     });
-    this.resource('invoice', function() {
+    this.route('invoice', function() {
       this.route('list');
     });
 

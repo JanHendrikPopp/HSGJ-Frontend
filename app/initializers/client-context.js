@@ -1,6 +1,6 @@
 import ClientContext from "./../common/client-context";
 
-export function initialize(container, application) {
+export function initialize(application) {
 	application.register('client-context:main', ClientContext, { instantiate: true });
   application.inject('route', 'client', 'client-context:main');
 	application.inject('controller', 'client', 'client-context:main');

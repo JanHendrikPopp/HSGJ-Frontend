@@ -1,5 +1,5 @@
 
-export function initialize(container, application) {
+export function initialize(application) {
 	application.inject('route', 'i18n', 'service:i18n');
 	application.inject('controller', 'i18n', 'service:i18n');
 	application.inject('adapter', 'i18n', 'service:i18n');

@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export function initialize(container, application) {
+export function initialize(application) {
   Ember.$(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
       if(jqXHR.status === 401) {
         console.log(ajaxSettings);
